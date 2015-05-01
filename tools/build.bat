@@ -50,11 +50,11 @@ echo Building edge.node %FLAVOR% for io.js %2 v%3
 set NODEEXE=%DESTDIR%\iojs.exe
 set GYP=%APPDATA%\npm\node_modules\pangyp\bin\node-gyp.js
 if not exist "%GYP%" (
-    echo Cannot find node-gyp at %GYP%. Make sure to install with npm install node-gyp -g
+    echo Cannot find pangyp at %GYP%. Make sure to install with npm install pangyp -g
     exit /b -1
 )
 
-"%NODEEXE%" "%GYP%" configure build --msvs_version=2013 -%FLAVOR%
+"%NODEEXE%" "%GYP%" configure build --target=0.25.1 --dist-url=https://atom.io/download/atom-shell --msvs_version=2013 -%FLAVOR%
 if %ERRORLEVEL% neq 0 (
     echo Error building edge.node %FLAVOR% for node.js %2 v%3
     exit /b -1
