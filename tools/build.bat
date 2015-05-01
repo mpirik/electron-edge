@@ -9,9 +9,9 @@ if "%1" equ "" (
 SET FLAVOR=%1
 shift
 if "%FLAVOR%" equ "" set FLAVOR=release
-for %%i in (node.exe) do set NODEEXE=%%~$PATH:i
+for %%i in (iojs.exe) do set NODEEXE=%%~$PATH:i
 if not exist "%NODEEXE%" (
-    echo Cannot find node.exe
+    echo Cannot find iojs.exe
     popd
     exit /b -1
 )
@@ -35,20 +35,20 @@ exit /b 0
 :build
 
 set DESTDIR=%DESTDIRROOT%\%1\%3
-if exist "%DESTDIR%\node.exe" goto gyp
+if exist "%DESTDIR%\iojs.exe" goto gyp
 if not exist "%DESTDIR%\NUL" mkdir "%DESTDIR%"
-echo Downloading node.exe %2 %3...
-node %SELF%\download.js %2 %3 "%DESTDIR%"
+echo Downloading iojs.exe %2 %3...
+iojs %SELF%\download.js %2 %3 "%DESTDIR%"
 if %ERRORLEVEL% neq 0 (
-    echo Cannot download node.exe %2 v%3
+    echo Cannot download iojs.exe %2 v%3
     exit /b -1
 )
 
 :gyp
 
-echo Building edge.node %FLAVOR% for node.js %2 v%3
-set NODEEXE=%DESTDIR%\node.exe
-set GYP=%APPDATA%\npm\node_modules\node-gyp\bin\node-gyp.js
+echo Building edge.node %FLAVOR% for io.js %2 v%3
+set NODEEXE=%DESTDIR%\iojs.exe
+set GYP=%APPDATA%\npm\node_modules\pangyp\bin\node-gyp.js
 if not exist "%GYP%" (
     echo Cannot find node-gyp at %GYP%. Make sure to install with npm install node-gyp -g
     exit /b -1
