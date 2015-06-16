@@ -1,11 +1,11 @@
 {
-  "name": "electron-edge",
+  "name": "electron-edge2",
   "author": {
     "name": "Tomasz Janczuk <tomasz@janczuk.org>, Chanwoong Kim <devk0817@gmail.com>",
     "url": "http://tomasz.janczuk.org",
     "twitter": "tjanczuk"
   },
-  "version": "0.10.2-pre",
+  "version": "2.3.0-pre",
   "description": "Electron-Edge.js: run .NET and Node.js in-process in Electron",
   "tags": [
     "owin",
