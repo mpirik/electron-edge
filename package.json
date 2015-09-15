@@ -5,7 +5,7 @@
     "url": "http://tomasz.janczuk.org",
     "twitter": "tjanczuk"
   },
-  "version": "2.5.0-pre",
+  "version": "2.5.1-pre",
   "description": "Electron-Edge.js: run .NET and Node.js in-process in Electron",
   "tags": [
     "owin",
