@@ -21,6 +21,7 @@ obj/
 *.suo
 packages/*
 _ReSharper*
+.idea
 
 Edge.Tests.*
 node.exe
